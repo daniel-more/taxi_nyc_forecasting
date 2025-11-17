@@ -10,3 +10,6 @@ tqdm
 statsmodels
 pmdarima
 prophet
+geopandas
+folium
+networkx
