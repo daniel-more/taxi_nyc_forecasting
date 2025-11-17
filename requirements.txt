@@ -1,0 +1,12 @@
+pandas
+scikit-learn
+xgboost
+numpy
+pyarrow
+holidays
+seaborn
+requests
+tqdm
+statsmodels
+pmdarima
+prophet

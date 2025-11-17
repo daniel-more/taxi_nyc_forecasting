@@ -1,0 +1,5 @@
+Model,Seasonal Component,MAE,RMSE,MAPE
+"ARIMA(1,1,1)",None,12500.0,15000.0,8.5
+"ARIMA(1,1,2)",None,12000.0,14500.0,8.2
+"SARIMA(1,1,1)(1,0,1,7)",Weekly (7 days),11125.95,13720.65,7.78
+Prophet,Weekly + Trend,11500.0,14000.0,8.0
