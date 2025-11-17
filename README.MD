@@ -1,88 +1,81 @@
-# **NYC TLC Taxi Demand Forecasting**
+# 🚕 NYC TLC Taxi Demand Forecasting
 
-## **Overview**
+**Forecasting NYC taxi demand using time‑series modeling, statistical analysis, and machine learning.** This project turns raw TLC trip data into actionable insights—surfaced through clean visualizations, seasonality modeling, and forward‑looking demand predictions. It applies data engineering, forecasting, and analytical skills.
 
-This project analyzes **NYC Taxi and Limousine Commission (TLC) Trip Record Data** for **Yellow and Green taxis** to forecast daily ride demand using time series models. The project will be expanded to include geographical and machine learning models. The dataset includes trip-level details such as pickup/drop-off timestamps, locations, distances, fares, payment types, and passenger counts. Data is provided by technology vendors under TLC’s TPEP/LPEP programs; TLC does not guarantee accuracy.
+---
 
-We aggregate hourly trip data into **daily totals** and apply statistical and machine learning models (ARIMA, SARIMA, and Prophet) to predict future demand.
+## 📊 Project Preview
 
-***
+![Taxi Demand Visualization](maps/pickup_demand_static.png)
 
-## **Data Source**
+*Visuals illustrate spacial pick-up demand.*
 
-*   **NYC TLC Trip Records**:  
-    <https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf>  
-    <https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_green.pdf>
+---
 
-Fields include:
+## 📁 Data Source
 
-*   Pickup and drop-off **date/time**
-*   Pickup and drop-off **locations**
-*   **Trip distance**
-*   **Fare details** (base fare, taxes, surcharges)
-*   **Payment type**
-*   **Passenger count**
+NYC Taxi & Limousine Commission (TLC) Trip Records:
 
-***
+* Yellow Cab Data Dictionary: [https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf)
+* Green Cab Data Dictionary: [https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_green.pdf](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_green.pdf)
 
-## **Project Workflow**
+Dataset fields include timestamps, geolocation IDs, distances, fares, payment types, and passenger counts. Data quality depends on vendor reporting.
 
-### 1. **Data Preparation**
+---
 
-*   Load hourly demand data from TLC trip records.
-*   Aggregate hourly rides into **daily totals**.
-*   Handle missing dates using **linear interpolation**.
+## 🔄 Workflow Overview
 
-### 2. **Exploratory Analysis**
+### **1. Data Preparation**
 
-*   Plot **ACF and PACF** to identify autocorrelation and seasonality.
-*   Detect weekly seasonality (7-day cycle).
+* Load hourly TLC trip data.
+* Aggregate into daily total rides.
+* Fill missing dates using linear interpolation.
 
-### 3. **Modeling**
+### **2. Exploratory Analysis**
 
-*   **ARIMA**: Non-seasonal model for trend and short-term autocorrelation.
-*   **SARIMA**: Seasonal ARIMA with weekly seasonality.
-*   **Prophet**: Handles trend, seasonality, and holidays.
+* Plot ACF/PACF.
+* Identify weekly (7‑day) seasonality.
 
-### 4. **Evaluation**
+### **3. Modeling**
 
-*   Metrics:
-    *   **MAE**: Mean Absolute Error
-    *   **RMSE**: Root Mean Squared Error
-    *   **MAPE**: Mean Absolute Percentage Error  
-        Example:
+* ARIMA for non‑seasonal structure.
+* SARIMA for trend + weekly seasonality.
+* Prophet for trend + seasonality + holidays.
 
-    <!---->
+### **4. Evaluation**
 
-        MAE:  11125.95
-        RMSE: 13720.65
-        MAPE: 7.78%
-    Interpretation: MAPE under 10% indicates good forecast accuracy, though RMSE suggests large deviations on peak days.
+Metrics used:
 
-***
+* MAE
+* RMSE
+* MAPE
 
-## **Key Insights**
+Example:
 
-*   ACF/PACF analysis suggests **ARIMA(1,1,1)** or **ARIMA(1,1,2)**.
-*   Weekly seasonality → **SARIMA(1,1,1)(1,0,1,7)** performs better.
-*   Prophet is useful for capturing trend and seasonality with minimal tuning.
+```
+MAE:  11125.95
+RMSE: 13720.65
+MAPE: 7.78%
+```
 
-***
+MAPE below 10% indicates solid forecast accuracy.
 
-## **How to Run**
+---
 
-1.  Install dependencies:
-    ```bash
-    pip install pandas matplotlib statsmodels pmdarima prophet pyarrow
-    ```
-2.  Place TLC trip data in `data/hourly_demand_partitioned/final`.
-3.  Run the main script:
-    ```bash
-    python forecast.py
-    ```
-4.  Outputs:
-    *   Forecast plots
-    *   Metrics summary
-    *   Saved results in `data/forecast_results`
+## 🔍 Key Insights
 
-***
+* ACF/PACF patterns support ARIMA(1,1,1) or ARIMA(1,1,2).
+* Seasonal performance improves with SARIMA(1,1,1)(1,0,1,7).
+* Prophet handles seasonality and long‑term trends with minimal tuning.
+
+---
+
+
+
+---
+
+## ⭐ Summary
+
+* Combines **data engineering + time series modeling + ML forecasting**.
+* Demonstrates **real‑world pipeline design** with partitioned data.
+* Easily extendable to geographical clustering, LSTM models, or deployment.
