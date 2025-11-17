@@ -1,7 +1,3 @@
-Here’s a sample `README.md` you can use for your project:
-
-***
-
 # **NYC TLC Taxi Demand Forecasting**
 
 ## **Overview**
