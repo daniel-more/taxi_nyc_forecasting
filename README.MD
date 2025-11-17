@@ -70,6 +70,22 @@ MAPE below 10% indicates solid forecast accuracy.
 
 ---
 
+![Taxi Time Series Visualization](images/taxi_nyc_time_series.png)
+
+
+
+
+## 🧭 Next Steps
+
+* Extend forecasting to **spatial demand modeling** using zone-level data.
+* Build **origin–destination flow models** leveraging the most frequently traveled routes identified during analysis.
+
+![Taxi Time Series Visualization](maps/new_york_major_flows.png)
+
+
+* Incorporate **machine learning approaches** (Random Forests, Gradient Boosting, XGBoost, and Neural Networks) for improved predictive performance.
+* Add geospatial visualizations and potentially incorporate LSTM or hybrid models.
+
 
 
 ---
@@ -79,3 +95,6 @@ MAPE below 10% indicates solid forecast accuracy.
 * Combines **data engineering + time series modeling + ML forecasting**.
 * Demonstrates **real‑world pipeline design** with partitioned data.
 * Easily extendable to geographical clustering, LSTM models, or deployment.
+
+
+
